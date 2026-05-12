@@ -82,5 +82,10 @@ def train_housing_model(
         scoring='neg_root_mean_squared_error'
     )
 
+    forest_model = make_pipeline(
+        processed,
+        RandomForestRegressor()
+    )
+
 
 
