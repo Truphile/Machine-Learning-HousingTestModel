@@ -96,6 +96,13 @@ def train_housing_model(
         forest_pred
     )
 
+    test_pred = linear_reg.predict(X_test)
+
+    test_rmse = root_mean_squared_error(
+        y_test,
+        test_pred
+    )
+
 
 
 
