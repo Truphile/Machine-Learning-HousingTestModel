@@ -30,3 +30,10 @@ def train_housing_model(
     X = housing.drop(columns=target_col)
     y = housing[target_col]
 
+    X_train, X_test, y_train, y_test = train_test_split(
+        X,
+        y,
+        test_size=test_size,
+        random_state=random_state
+    )
+
