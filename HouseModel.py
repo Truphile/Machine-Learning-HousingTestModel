@@ -20,3 +20,9 @@ def train_housing_model(
         housing['ocean_proximity']
         .astype('category')
     )
+
+    housing['total_bedrooms'] = (
+        housing['total_bedrooms']
+        .fillna(housing['total_bedrooms'].median())
+    )
+
