@@ -39,3 +39,11 @@ def split_data(housing_data, test_size, random_state):
     X_train , X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
     return X_train, X_test, y_train, y_test
 
+def build_training_pipeline(processed_data, algorithm):
+    return make_pipeline(processed_data, algorithm)
+
+splited_housing_data = split_data(housing_data, test_size=0.2, random_state=42)
+splited_housing_data[0].shape
+
+
+
