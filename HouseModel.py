@@ -108,6 +108,14 @@ def train_housing_model(
         "r_model.pkl"
     )
 
+    return {
+        "linear_rmse": linear_rmse,
+        "linear_cv_mean": linear_cv.mean(),
+        "forest_rmse": forest_rmse,
+        "test_rmse": test_rmse,
+        "model_saved": True
+    }
+
 
 
 
