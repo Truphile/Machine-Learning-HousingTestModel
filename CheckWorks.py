@@ -45,5 +45,9 @@ def build_training_pipeline(processed_data, algorithm):
 splited_housing_data = split_data(housing_data, test_size=0.2, random_state=42)
 splited_housing_data[0].shape
 
+X_train = splited_housing_data[0]
+X_test = splited_housing_data[1]
+y_train = splited_housing_data[2]
+y_test = splited_housing_data[3]
 
 
