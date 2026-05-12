@@ -46,5 +46,18 @@ def train_housing_model(
         OneHotEncoder(handle_unknown='ignore')
     )
 
+    processed = ColumnTransformer([
+        (
+            'num',
+            num_column,
+            make_column_selector(dtype_include=np.number)
+        ),
+        (
+            'cat',
+            cat_column,
+            make_column_selector(dtype_exclude=np.number)
+        )
+    ])
+
 
 
