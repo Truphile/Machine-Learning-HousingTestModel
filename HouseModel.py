@@ -37,3 +37,9 @@ def train_housing_model(
         random_state=random_state
     )
 
+    num_column = make_pipeline(
+        SimpleImputer(strategy='median'),
+        StandardScaler()
+    )
+
+
