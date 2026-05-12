@@ -81,5 +81,8 @@ for name, algorithm in algorithms.items():
         }
     )
 
+    result_table = pd.DataFrame(results)
+    result_table
+
 
 
