@@ -87,5 +87,15 @@ def train_housing_model(
         RandomForestRegressor()
     )
 
+    forest_model.fit(X_train, y_train)
+
+    forest_pred = forest_model.predict(X_train)
+
+    forest_rmse = root_mean_squared_error(
+        y_train,
+        forest_pred
+    )
+
+
 
 
