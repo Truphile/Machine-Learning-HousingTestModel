@@ -26,3 +26,7 @@ def train_housing_model(
         .fillna(housing['total_bedrooms'].median())
     )
 
+
+    X = housing.drop(columns=target_col)
+    y = housing[target_col]
+
