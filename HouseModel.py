@@ -16,3 +16,7 @@ def train_housing_model(
     test_size=0.2,
     random_state=42
 ):
+    housing['ocean_proximity'] = (
+        housing['ocean_proximity']
+        .astype('category')
+    )
