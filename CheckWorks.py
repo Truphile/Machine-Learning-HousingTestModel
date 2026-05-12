@@ -51,3 +51,35 @@ y_train = splited_housing_data[2]
 y_test = splited_housing_data[3]
 
 
+algorithms = {
+    "linear_regression": LinearRegression(),
+    "random_forest_regression": RandomForestRegressor(),
+    "decision_tree": DecisionTreeRegressor(),
+    "gradient_boosting": GradientBoostingRegressor(),
+    "sgd_regressor": SGDRegressor(),
+
+}
+results = []
+for name, algorithm in algorithms.items():
+    pipeline = build_training_pipeline(clean_data(), algorithm)
+    pipeline.fit(X_train, y_train)
+    y_pred = pipeline.predict(X_train)
+    train_root_mean_square_error = root_mean_squared_error(y_train, y_pred)
+
+    cross_validation_scores = -cross_val_score(pipeline, X_train, y_train, cv=5, scoring='neg_root_mean_squared_error')
+    results.append(
+        {
+            "algorithm": name,
+            "train_root_mean_square_error": train_root_mean_square_error,
+            # "cross_validation_scores": cross_validation_scores,
+            "cross_validation_scores_mean": cross_validation_scores.mean(),
+            "cross_validation_scores_std": cross_validation_scores.std(),
+            "cross_validation_scores_min": cross_validation_scores.min(),
+            "cross_validation_scores_max": cross_validation_scores.max()
+
+
+        }
+    )
+
+
+
