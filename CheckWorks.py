@@ -32,3 +32,10 @@ def clean_data():
         ('num', numerical_column, make_column_selector(dtype_include=np.number)),
         ('cat', categorical_column, make_column_selector(dtype_exclude=np.number))
     ])
+
+def split_data(housing_data, test_size, random_state):
+    X = housing_data.drop(columns='median_house_value')
+    y = housing_data['median_house_value']
+    X_train , X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+    return X_train, X_test, y_train, y_test
+
