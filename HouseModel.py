@@ -103,6 +103,12 @@ def train_housing_model(
         test_pred
     )
 
+    joblib.dump(
+        linear_reg,
+        "r_model.pkl"
+    )
+
+
 
 
 
