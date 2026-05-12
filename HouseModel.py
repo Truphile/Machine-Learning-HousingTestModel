@@ -42,4 +42,9 @@ def train_housing_model(
         StandardScaler()
     )
 
+    cat_column = make_pipeline(
+        OneHotEncoder(handle_unknown='ignore')
+    )
+
+
 
