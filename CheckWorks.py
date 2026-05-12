@@ -20,3 +20,15 @@ from sklearn.model_selection import cross_val_score
 df = pd.read_csv("/home/truphile/Downloads/housing.csv")
 df.head()
 
+def clean_data():
+    numerical_column = make_pipeline(
+        SimpleImputer(strategy='median'),
+        StandardScaler()
+    )
+    categorical_column = make_pipeline(
+        OneHotEncoder(handle_unknown='ignore'),
+    )
+    return ColumnTransformer([
+        ('num', numerical_column, make_column_selector(dtype_include=np.number)),
+        ('cat', categorical_column, make_column_selector(dtype_exclude=np.number))
+    ])
