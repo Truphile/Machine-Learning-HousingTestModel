@@ -74,5 +74,13 @@ def train_housing_model(
         linear_pred
     )
 
+    linear_cv = -cross_val_score(
+        linear_reg,
+        X_train,
+        y_train,
+        cv=5,
+        scoring='neg_root_mean_squared_error'
+    )
+
 
 
