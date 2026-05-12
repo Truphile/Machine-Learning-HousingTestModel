@@ -66,5 +66,13 @@ def train_housing_model(
 
     linear_reg.fit(X_train, y_train)
 
+    linear_pred = linear_reg.predict(X_train)
+
+    # RMSE
+    linear_rmse = root_mean_squared_error(
+        y_train,
+        linear_pred
+    )
+
 
 
