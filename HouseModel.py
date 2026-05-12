@@ -59,5 +59,12 @@ def train_housing_model(
         )
     ])
 
+    linear_reg = make_pipeline(
+        processed,
+        LinearRegression()
+    )
+
+    linear_reg.fit(X_train, y_train)
+
 
 
